@@ -1,0 +1,9 @@
+==================================
+Benchmark results for: "First part":
+Times benchmarked: 100
+
+Average time: 0.84772ms
+Minimum time: 0ms
+Maximum time: 1.995ms
+       Range: 1.995ms
+==================================
