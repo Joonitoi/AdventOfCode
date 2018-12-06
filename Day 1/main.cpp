@@ -1,24 +1,19 @@
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <vector>
 #include <unordered_set>
 #include "../Utils/Benchmark.h"
+#include "../Utils/Reader.h"
 
+
+
+//Day 1 Part 1
 void firstPart()
 {
     std::ifstream inpt;
-    inpt.open("input.txt");
-    std::string bfr;
+    Reader inptReader(inpt);
     std::vector<int> freq;
-    while(std::getline(inpt, bfr))
-    {
-        if(bfr.size() > 0)
-        {
-            freq.push_back(std::stoi(bfr));
-        }
-    }
-    inpt.close();
+    inptReader.read("input.txt", freq);
 int sum = 0;
 for(auto line : freq)
 {
@@ -26,20 +21,18 @@ for(auto line : freq)
 }
 std::cout << "The result of the first part is: " << sum << std::endl;
 }
+
+
+
+
+//Day 1 Part 2
 void secondPart()
 {
     int temp = 0;
     std::ifstream inpt;
-    inpt.open("input.txt");
-    std::string bfr;
+   Reader inptReader(inpt);
     std::vector<int> freq;
-    while(std::getline(inpt, bfr))
-    {
-        if(bfr.size() > 0)
-        {
-            freq.push_back(std::stoi(bfr));
-        }
-    }
+    inptReader.read("input.txt", freq);
     std::unordered_set<int> match;
 while(true)
 {
@@ -59,6 +52,8 @@ while(true)
 }
 }
 
+
+//Main function, this is where we do the benchmarks
 int main()
 {
 Benchmark<100> fPbm("First part: ", &firstPart);
